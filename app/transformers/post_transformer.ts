@@ -8,7 +8,7 @@ export default class PostTransformer extends BaseTransformer<Post> {
     return {
       ...this.pick(this.resource, ['id', 'title', 'url', 'summary', 'createdAt']),
       author: UserTransformer.transform(this.resource.user),
-      comments: CommentTransformer.transform(this.whenLoaded(this.resource.comments))?.depth(2)
+      comments: CommentTransformer.transform(this.whenLoaded(this.resource.comments))?.depth(2),
     }
   }
 }

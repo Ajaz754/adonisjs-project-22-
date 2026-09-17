@@ -1,5 +1,5 @@
-import { InertiaProps } from '~/types'
-import { Data } from '@generated/data'
+import type { InertiaProps } from '~/types'
+import type { Data } from '@generated/data'
 import { Link } from '@adonisjs/inertia/react'
 
 type PageProps = InertiaProps<{
@@ -14,7 +14,7 @@ export default function PostsIndex(props: PageProps) {
         <h1>Posts</h1>
       </div>
 
-      { posts.map((post) => (
+      {posts.map((post) => (
         <div key={post.id} className="post-item">
           <h2>{post.title}</h2>
 
@@ -37,7 +37,7 @@ export default function PostsIndex(props: PageProps) {
             </div>
           </div>
         </div>
-      )) }
+      ))}
     </div>
   )
 }

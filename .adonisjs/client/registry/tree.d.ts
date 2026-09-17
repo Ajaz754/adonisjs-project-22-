@@ -5,6 +5,9 @@ export interface ApiDefinition {
   home: typeof routes['home']
   posts: {
     index: typeof routes['posts.index']
+    create: typeof routes['posts.create']
+    store: typeof routes['posts.store']
+    show: typeof routes['posts.show']
   }
   newAccount: {
     create: typeof routes['new_account.create']
