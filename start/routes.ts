@@ -20,6 +20,8 @@ router.post('/posts', [controllers.Posts, 'store']).use(middleware.auth())
 
 router.get('/posts/:id', [controllers.Posts, 'show'])
 
+router.post('/posts/:id/comments', [controllers.Comments, 'store']).use(middleware.auth())
+
 router
   .group(() => {
     router.get('signup', [controllers.NewAccount, 'create'])
