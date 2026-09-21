@@ -1,9 +1,9 @@
 import type { InertiaProps } from '~/types'
 import type { Data } from '@generated/data'
-import { Form } from '@adonisjs/inertia/react'
+import { Form, Link } from '@adonisjs/inertia/react'
 
 type PageProps = InertiaProps<{
-  post: Data.Post
+  post: Data.Post.Variants['forDetailedView']
 }>
 
 export default function Show(props: PageProps) {
@@ -11,6 +11,7 @@ export default function Show(props: PageProps) {
 
   return (
     <div className="container">
+      <Link route="posts.index">&lsaquo; Go back to posts listing</Link>
       <div>
         <h1>{post.title}</h1>
       </div>
@@ -28,6 +29,14 @@ export default function Show(props: PageProps) {
         </div>
 
         <div className="post-summary">{post.summary}</div>
+
+        <div className="post-action">
+          {post.can?.edit && (
+            <Link route="posts.edit" routeParams={{ id: post.id }}>
+              Edit Post
+            </Link>
+          )}
+        </div>
 
         <div className="post-comments">
           <h2>Comments</h2>

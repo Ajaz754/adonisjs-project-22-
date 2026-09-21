@@ -2,6 +2,9 @@ import { BaseTransformer } from '@adonisjs/core/transformers'
 import type Post from '#models/post'
 import UserTransformer from '#transformers/user_transformer'
 import CommentTransformer from '#transformers/comment_transformer'
+import { inject } from '@adonisjs/core'
+import { HttpContext } from '@adonisjs/core/http'
+import PostPolicy from '#policies/post_policy'
 
 export default class PostTransformer extends BaseTransformer<Post> {
   toObject() {
@@ -9,6 +12,17 @@ export default class PostTransformer extends BaseTransformer<Post> {
       ...this.pick(this.resource, ['id', 'title', 'url', 'summary', 'createdAt']),
       author: UserTransformer.transform(this.resource.user),
       comments: CommentTransformer.transform(this.whenLoaded(this.resource.comments))?.depth(2),
+    }
+  }
+
+  @inject()
+  async forDetailedView({ bouncer }: HttpContext) {
+    return {
+      ...this.toObject(),
+      can: {
+        edit: await bouncer.with(PostPolicy).allows('edit', this.resource),
+        delete: await bouncer.with(PostPolicy).allows('delete', this.resource),
+      },
     }
   }
 }

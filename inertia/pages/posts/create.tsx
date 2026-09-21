@@ -1,9 +1,11 @@
 import { Form } from '@adonisjs/inertia/react'
+import { Link } from '@adonisjs/inertia/react'
 
 export default function PostsCreate() {
   return (
     <div className="form-container">
       <div>
+        <Link route="posts.index">&lsaquo; Go back to posts listing</Link>
         <h1>Share your creation</h1>
         <p>Share your URL and a short summary</p>
       </div>

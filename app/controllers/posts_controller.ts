@@ -1,7 +1,8 @@
 import Post from '#models/post'
 import type { HttpContext } from '@adonisjs/core/http'
 import PostTransformer from '#transformers/post_transformer'
-import { createPostValidator } from '#validators/post'
+import { createPostValidator, updatePostValidator } from '#validators/post'
+import PostPolicy from '#policies/post_policy'
 
 export default class PostsController {
   async index({ inertia }: HttpContext) {
@@ -21,8 +22,11 @@ export default class PostsController {
       })
       .firstOrFail()
 
+    // return inertia.render('posts/show', {
+    //   post: PostTransformer.transform(post),
+    // })
     return inertia.render('posts/show', {
-      post: PostTransformer.transform(post),
+      post: PostTransformer.transform(post).useVariant('forDetailedView'),
     })
   }
 
@@ -39,5 +43,27 @@ export default class PostsController {
     })
 
     return response.redirect().toRoute('posts.index')
+  }
+
+  async edit({ bouncer, params, inertia }: HttpContext) {
+    const post = await Post.findOrFail(params.id)
+
+    await bouncer.with(PostPolicy).authorize('edit', post)
+
+    return inertia.render('posts/edit', {
+      post: PostTransformer.transform(post),
+    })
+  }
+
+  async update({ bouncer, params, request, response, session }: HttpContext) {
+    const post = await Post.findOrFail(params.id)
+
+    await bouncer.with(PostPolicy).authorize('edit', post)
+
+    const data = await request.validateUsing(updatePostValidator)
+    await post.merge(data).save()
+
+    session.flash('success', 'Post updated succesfully')
+    return response.redirect().toRoute('posts.show', { id: post.id })
   }
 }
