@@ -66,4 +66,15 @@ export default class PostsController {
     session.flash('success', 'Post updated succesfully')
     return response.redirect().toRoute('posts.show', { id: post.id })
   }
+
+  async destroy({ bouncer, params, response, session }: HttpContext) {
+    const post = await Post.findOrFail(params.id)
+
+    await bouncer.with(PostPolicy).authorize('delete', post)
+
+    await post.delete()
+
+    session.flash('success', 'Post deleted successfully')
+    return response.redirect().toRoute('posts.index')
+  }
 }

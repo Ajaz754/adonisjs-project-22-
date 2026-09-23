@@ -18,7 +18,7 @@ export default function Show(props: PageProps) {
 
       <div className="post">
         <div className="post-meta">
-          <div>By {post.author.fullName}</div>
+          <div>By {post.author?.fullName}</div>
 
           <span>.</span>
           <div>
@@ -35,6 +35,19 @@ export default function Show(props: PageProps) {
             <Link route="posts.edit" routeParams={{ id: post.id }}>
               Edit Post
             </Link>
+          )}
+
+          {post.can?.delete && (
+            <>
+              <span>.</span>
+              <Form route="posts.destroy" routeParams={{ id: post.id }}>
+                {() => (
+                  <button type="submit" className="destructive">
+                    Delete
+                  </button>
+                )}
+              </Form>
+            </>
           )}
         </div>
 
@@ -77,6 +90,17 @@ export default function Show(props: PageProps) {
                       day: 'numeric',
                       year: 'numeric',
                     })}
+                </div>
+                <div className="comment-actions">
+                  {comment.can?.delete && (
+                    <Form route="comments.destory" routeParams={{ id: comment.id }}>
+                      {() => (
+                        <button type="submit" className="destructive">
+                          Delete
+                        </button>
+                      )}
+                    </Form>
+                  )}
                 </div>
               </div>
             ))

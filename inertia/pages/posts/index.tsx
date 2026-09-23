@@ -22,7 +22,7 @@ export default function PostsIndex(props: PageProps) {
           <h2>{post.title}</h2>
 
           <div className="post-meta">
-            <div>By {post.author.fullName}</div>
+            <div>By {post.author?.fullName}</div>
 
             <span>.</span>
             <div>

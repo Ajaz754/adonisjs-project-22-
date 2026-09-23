@@ -10,9 +10,11 @@ export interface ApiDefinition {
     show: typeof routes['posts.show']
     edit: typeof routes['posts.edit']
     update: typeof routes['posts.update']
+    destroy: typeof routes['posts.destroy']
   }
   comments: {
     store: typeof routes['comments.store']
+    destroy: typeof routes['comments.destroy']
   }
   newAccount: {
     create: typeof routes['new_account.create']
