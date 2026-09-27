@@ -39,6 +39,7 @@ export default function Layout({ children }: { children: ReactElement<Data.Share
               </svg>
             </Link>
           </div>
+          <div>LOGO</div>
           <div>
             <nav>
               {children.props.user ? (

@@ -208,7 +208,7 @@ button:hover {
 }
 .alert-destructive {
   color: #fb2c36;
-  background: #fb2c361a;
+  background: #0400ff1a;
   border-color: #fb2c36;
 }
 .alert-success {
@@ -337,9 +337,37 @@ button:hover {
   margin-top: 5px;
 }
 
+.destructive {
+  color: #ff0000;
+}
+
 .posts-list-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
+
+.navbar{
+  width: 100%;
+  padding: 1rem 5%;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  margin-bottom: 2rem;
+}
+
+.nav-links{
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a{
+  position: relative;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #000;
+}
+

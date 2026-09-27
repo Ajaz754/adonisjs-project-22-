@@ -2,16 +2,43 @@ import { Link } from '@adonisjs/inertia/react'
 
 export default function Home() {
   return (
-    <div className="hero">
-      <h1>DevShow - Share what you have built</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa asperiores deleniti esse ex
-        iusto atque debitis recusandae iure aperiam incidunt?
-      </p>
-      <div>
-        <Link route="posts.index" className="button">
-          Browse posts created by others
-        </Link>
+    <div>
+      <div className="navbar">
+        <ul className="nav-links">
+          <li>
+            <a href="#">Black</a>
+          </li>
+          <li>
+            <a href="#">Blue</a>
+          </li>
+          <li>
+            <a href="#">Red</a>
+          </li>
+          <li>
+            <a href="#">Yellow</a>
+          </li>
+          <li>
+            <a href="#">Pink</a>
+          </li>
+          <li>
+            <a href="#">Purple</a>
+          </li>
+          <li>
+            <a href="#">Grey</a>
+          </li>
+        </ul>
+      </div>
+      <div className="hero">
+        <h1>DevShow - Share what you have built</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa asperiores deleniti esse ex
+          iusto atque debitis recusandae iure aperiam incidunt?
+        </p>
+        <div>
+          <Link route="posts.index" className="button">
+            Browse posts created by others
+          </Link>
+        </div>
       </div>
     </div>
   )

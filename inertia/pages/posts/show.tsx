@@ -18,7 +18,7 @@ export default function Show(props: PageProps) {
 
       <div className="post">
         <div className="post-meta">
-          <div>By {post.author?.fullName}</div>
+          <div>By {post.author.fullName}</div>
 
           <span>.</span>
           <div>
@@ -93,7 +93,7 @@ export default function Show(props: PageProps) {
                 </div>
                 <div className="comment-actions">
                   {comment.can?.delete && (
-                    <Form route="comments.destory" routeParams={{ id: comment.id }}>
+                    <Form route="comments.destroy" routeParams={{ id: comment.id }}>
                       {() => (
                         <button type="submit" className="destructive">
                           Delete
