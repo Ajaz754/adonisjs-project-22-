@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: ReactElement<Data.Share
 
   return (
     <>
-      <header>
+      {/* <header>
         <div>
           <div>
             <Link route="home">
@@ -58,7 +58,7 @@ export default function Layout({ children }: { children: ReactElement<Data.Share
             </nav>
           </div>
         </div>
-      </header>
+      </header> */}
       <main>{children}</main>
       <Toaster position="top-center" richColors />
     </>
