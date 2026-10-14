@@ -434,7 +434,6 @@ header{
   justify-content: center;
   align-items: center;
   padding: 1.5rem;
-  position: sticky;
 }
 
 header .logo{

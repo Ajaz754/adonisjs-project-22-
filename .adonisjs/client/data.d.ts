@@ -8,6 +8,7 @@ import type { InferData, InferVariants } from '@adonisjs/core/types/transformers
 import type { InferSharedProps, InferFlashData } from '@adonisjs/inertia/types'
 import type CommentTransformer from '#transformers/comment_transformer'
 import type PostTransformer from '#transformers/post_transformer'
+import type ProductTransformer from '#transformers/product_transformer'
 import type UserTransformer from '#transformers/user_transformer'
 import type InertiaMiddleware from '#middleware/inertia_middleware'
 
@@ -19,6 +20,10 @@ export namespace Data {
   export type Post = InferData<PostTransformer>
   export namespace Post {
     export type Variants = InferVariants<PostTransformer>
+  }
+  export type Product = InferData<ProductTransformer>
+  export namespace Product {
+    export type Variants = InferVariants<ProductTransformer>
   }
   export type User = InferData<UserTransformer>
   export namespace User {

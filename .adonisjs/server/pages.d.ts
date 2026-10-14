@@ -21,5 +21,7 @@ declare module '@adonisjs/inertia/types' {
     'posts/edit': ExtractProps<(typeof import('../../inertia/pages/posts/edit.tsx'))['default']>
     'posts/index': ExtractProps<(typeof import('../../inertia/pages/posts/index.tsx'))['default']>
     'posts/show': ExtractProps<(typeof import('../../inertia/pages/posts/show.tsx'))['default']>
+    'products/index': ExtractProps<(typeof import('../../inertia/pages/products/index.tsx'))['default']>
+    'products/show': ExtractProps<(typeof import('../../inertia/pages/products/show.tsx'))['default']>
   }
 }

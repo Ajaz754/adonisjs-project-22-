@@ -13,6 +13,9 @@ import router from '@adonisjs/core/services/router'
 
 router.on('/').renderInertia('home', {}).as('home')
 
+router.get('/products', [controllers.Products, 'index'])
+router.get('/products/:id', [controllers.Products, 'show'])
+
 router.get('/posts', [controllers.Posts, 'index'])
 
 router.get('/posts/create', [controllers.Posts, 'create']).use(middleware.auth())
