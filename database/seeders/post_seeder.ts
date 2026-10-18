@@ -6,7 +6,7 @@ import { CommentFactory } from '#database/factories/comment_factory'
 export default class extends BaseSeeder {
   async run() {
     const user = await User.findByOrFail('email', 'jane@example.com')
-    const posts = await PostFactory.merge ({ userId: user.id }).createMany(10)
+    const posts = await PostFactory.merge({ userId: user.id }).createMany(10)
 
     for (const post of posts) {
       await CommentFactory.merge({ postId: post.id, userId: user.id }).createMany(

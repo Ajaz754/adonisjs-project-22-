@@ -14,9 +14,8 @@ export default function ProductsIndex(props: PageProps) {
         <h1>Products</h1>
       </div>
       {products.map((product) => (
-        <div key={product.id} className="product item">
+        <div key={product.id} className="product-item">
           <h2>{product.name}</h2>
-
           <div className="product-meta">
             <div>
               {/* <a href={product.imgUrl} target="_blank" rel="nonreferrer"> */}

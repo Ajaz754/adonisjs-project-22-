@@ -1,5 +1,4 @@
 import { BaseSchema } from '@adonisjs/lucid/schema'
-import { toReadableSync } from 'node:stream/iter'
 
 export default class extends BaseSchema {
   protected tableName = 'products'

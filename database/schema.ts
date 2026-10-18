@@ -43,6 +43,19 @@ export class PostSchema extends BaseModel {
   declare userId: number
 }
 
+export class ProductCommentSchema extends BaseModel {
+  static $columns = ['content', 'createdAt', 'id', 'updatedAt'] as const
+  $columns = ProductCommentSchema.$columns
+  @column()
+  declare content: string
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
 export class ProductSchema extends BaseModel {
   static $columns = ['createdAt', 'description', 'id', 'imgUrl', 'name', 'price', 'updatedAt'] as const
   $columns = ProductSchema.$columns

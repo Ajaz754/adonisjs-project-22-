@@ -1,4 +1,4 @@
-/* :root {
+ :root {
   --gray-1: oklch(98.5% 0 0);
   --gray-2: oklch(97% 0 0);
   --gray-3: oklch(92.2% 0 0);
@@ -45,7 +45,7 @@ h6 {
   color: var(--gray-12);
 }
 
-/* Header 
+/* Header */
 header {
   max-width: 1440px;
   margin: auto;
@@ -71,7 +71,7 @@ header nav a.current {
   color: var(--gray-12);
 }
 
-/* Main 
+/* Main */
 main {
   max-width: 1440px;
   margin: 0 30px;
@@ -130,7 +130,7 @@ main {
   color: var(--gray-6);
 }
 
-/* Form *
+/* Form */
 .form-container {
   display: flex;
   flex-direction: column;
@@ -194,7 +194,7 @@ button:hover {
   background: var(--gray-10);
 }
 
-/* Alerts *
+/* Alerts */
 .alert {
   background: #fff;
   position: relative;
@@ -348,7 +348,6 @@ button:hover {
   margin-bottom: 20px;
 }
 
-*/
 /* * {
   margin: 0;
   padding: 0;
@@ -413,7 +412,7 @@ body {
   padding: 0.5rem 1.5rem;
 } */
 
-:root{
+/* :root{
   --clr-secondary-text: #a5a5a5;
   --clr-primary-text: #fff;
   --accents: #5dd1f8da;
@@ -765,4 +764,4 @@ footer{
 
 .copyright-banner h3{
   color: var(--clr-primary-text);
-}
+} */

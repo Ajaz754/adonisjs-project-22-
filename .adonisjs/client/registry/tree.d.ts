@@ -5,6 +5,7 @@ export interface ApiDefinition {
   home: typeof routes['home']
   products: {
     index: typeof routes['products.index']
+    show: typeof routes['products.show']
   }
   posts: {
     index: typeof routes['posts.index']

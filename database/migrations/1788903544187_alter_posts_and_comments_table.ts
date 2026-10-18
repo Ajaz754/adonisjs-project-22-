@@ -4,17 +4,11 @@ export default class extends BaseSchema {
   protected tableName = 'posts_and_comments'
 
   async up() {
-    /**
-     * Add user_id to posts table
-     */
     this.schema.alterTable('posts', (table) => {
       table.integer('user_id').unsigned().notNullable()
       table.foreign('user_id').references('users.id').onDelete('CASCADE')
     })
 
-    /**
-     * Add user_id and post_id to comments table
-     */
     this.schema.alterTable('comments', (table) => {
       table.integer('user_id').unsigned().notNullable()
       table.foreign('user_id').references('users.id').onDelete('CASCADE')

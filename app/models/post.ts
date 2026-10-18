@@ -5,15 +5,15 @@ import Comment from '#models/comment'
 import User from '#models/user'
 
 export default class Post extends PostSchema {
-    /**
-     * A post has many comments
-     */
-    @hasMany(() => Comment)
-    declare comments: HasMany<typeof Comment>
+  /**
+   * A post has many comments
+   */
+  @hasMany(() => Comment)
+  declare comments: HasMany<typeof Comment>
 
-    /**
-     * A post belongs to a user
-     */
-    @belongsTo(() => User)
-    declare user: BelongsTo<typeof User>
+  /**
+   * A post belongs to a user
+   */
+  @belongsTo(() => User)
+  declare user: BelongsTo<typeof User>
 }

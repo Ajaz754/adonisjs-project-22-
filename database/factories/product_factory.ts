@@ -4,7 +4,7 @@ import Product from '#models/product'
 export const ProductFactory = factory
   .define(Product, async ({ faker }) => {
     return {
-      title: faker.helpers.arrayElement([
+      name: faker.helpers.arrayElement([
         'Black Bag',
         'Brown Purse',
         'Yellow T-shirt',
@@ -12,6 +12,8 @@ export const ProductFactory = factory
         'Orange Jeans',
         'Red hat',
       ]),
+      description: faker.lorem.paragraph(),
+      price: faker.number.float({ min: 1, max: 100 }),
     }
   })
   .build()
