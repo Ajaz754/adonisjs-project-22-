@@ -7,7 +7,7 @@ import Product from '#models/product'
 
 export default class Comment extends CommentSchema {
   /**
-   * A comment belongs to a user
+   * A comment belongs to a Post
    */
   @belongsTo(() => Post)
   declare post: BelongsTo<typeof Post>

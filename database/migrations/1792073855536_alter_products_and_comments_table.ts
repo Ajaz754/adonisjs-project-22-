@@ -1,7 +1,7 @@
 import { BaseSchema } from '@adonisjs/lucid/schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'posts_and_comments'
+  protected tableName = 'products_and_comments'
 
   async up() {
     this.schema.alterTable('products', (table) => {
@@ -19,7 +19,7 @@ export default class extends BaseSchema {
   }
 
   async down() {
-    this.schema.alterTable('posts', (table) => {
+    this.schema.alterTable('products', (table) => {
       table.dropForeign(['user.id'])
       table.dropColumn('user.id')
     })
