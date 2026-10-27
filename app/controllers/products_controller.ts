@@ -15,7 +15,7 @@ export default class ProductsController {
     const product = await Product.query().where('id', params.id).firstOrFail()
 
     return inertia.render('products/show', {
-      products: ProductTransformer.transform(product),
+      product: ProductTransformer.transform(product),
     })
   }
 }
