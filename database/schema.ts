@@ -24,6 +24,36 @@ export class CommentSchema extends BaseModel {
   declare userId: number
 }
 
+export class ItemCommentSchema extends BaseModel {
+  static $columns = ['comment', 'createdAt', 'id', 'updatedAt'] as const
+  $columns = ItemCommentSchema.$columns
+  @column()
+  declare comment: string
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column({ isPrimary: true })
+  declare id: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class ItemSchema extends BaseModel {
+  static $columns = ['createdAt', 'description', 'id', 'name', 'updatedAt', 'userId'] as const
+  $columns = ItemSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column()
+  declare description: string
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare name: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+  @column()
+  declare userId: number
+}
+
 export class PostSchema extends BaseModel {
   static $columns = ['createdAt', 'id', 'summary', 'title', 'updatedAt', 'url', 'userId'] as const
   $columns = PostSchema.$columns
@@ -57,7 +87,7 @@ export class ProductCommentSchema extends BaseModel {
 }
 
 export class ProductSchema extends BaseModel {
-  static $columns = ['createdAt', 'description', 'id', 'imgUrl', 'name', 'price', 'updatedAt'] as const
+  static $columns = ['createdAt', 'description', 'id', 'imgUrl', 'name', 'price', 'updatedAt', 'userId', 'userId'] as const
   $columns = ProductSchema.$columns
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime | null
@@ -73,6 +103,10 @@ export class ProductSchema extends BaseModel {
   declare price: number
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
+  @column()
+  declare userId: number
+  @column()
+  declare userId: number
 }
 
 export class UserSchema extends BaseModel {
